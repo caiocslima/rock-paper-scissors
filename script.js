@@ -4,20 +4,42 @@ function getComputerChoice () {
     console.log(options[index]);
     return options[index];
 }
-
+function capitalize (text) {
+    return text.charAt(0).toUpperCase() + text.slice(1);
+}
 function getPlayerChoice () {
     let option = prompt("Please enter your choice: Rock, Paper or Scissors");
-    option.charAt(0).toUpperCase;
-    let rest = option.slice(1);
-    rest.toLowerCase;
-    console.log(option+rest);
-    return option + rest;
+    option = capitalize(option);
+    console.log(option);
+    return option;
 }
+function playRound (player,computer) {
+    if (player === "Rock" && computer === "Paper") {
+        console.log("You lose! Paper beats Rock.");
+    }
+    else if (player === "Paper" && computer === "Rock") {
+        console.log("You win! Paper beats Rock.");
+    }
+    else if (player === "Rock" && computer === "Scissors") {
+        console.log("You win! Rock beats Scissors.");
+    }
+    else if (player === "Scissors" && computer === "Rock") {
+        console.log("You lose! Rock beats Scissors.");
+    }
+    else if (player === "Paper" && computer === "Scissors") {
+        console.log("You lose! Scissors beats Paper.");
+    }
+    else if (player === "Scissors" && computer === "Paper") {
+        console.log("You win! Scissors beats Paper.");
+    }
+    else {
+        console.log("It's a draw!");
+    }
 
-getPlayerChoice ();
+let playerSelection = getPlayerChoice();
 
-let computerSelection = getComputerChoice ();
+let computerSelection = getComputerChoice();
 
-function gameRound (playerSelection, computerSelection) {
+playRound(playerSelection,computerSelection);
 
 }
