@@ -1,8 +1,4 @@
-let playerSelection = getPlayerChoice();
-
-let computerSelection = getComputerChoice();
-
-playRound(playerSelection, computerSelection);
+game();
 
 function getComputerChoice () {
     const options = ["Rock", "Paper","Scissors"];
@@ -21,24 +17,57 @@ function getPlayerChoice () {
 }
 function playRound (player,computer) {
     if (player == "Rock" && computer == "Paper") {
-        console.log("You lose! Paper beats Rock.");
+        let result = "You lose! Paper beats Rock.";
+        return result;
     }
     else if (player == "Paper" && computer == "Rock") {
-        console.log("You win! Paper beats Rock.");
+        let result = "You win! Paper beats Rock.";
+        return result;
     }
     else if (player == "Rock" && computer == "Scissors") {
-        console.log("You win! Rock beats Scissors.");
+        let result = "You win! Rock beats Scissors.";
+        return result;
     }
     else if (player == "Scissors" && computer == "Rock") {
-        console.log("You lose! Rock beats Scissors.");
+        let result = "You lose! Rock beats Scissors.";
+        return result;
     }
     else if (player == "Paper" && computer == "Scissors") {
-        console.log("You lose! Scissors beats Paper.");
+        let result = "You lose! Scissors beats Paper.";
+        return result;
     }
     else if (player == "Scissors" && computer == "Paper") {
-        console.log("You win! Scissors beats Paper.");
+        let result = "You win! Scissors beats Paper.";
+        return result;
     }
     else {
-        console.log("It's a draw!");
+        let result = "It's a draw!";
+        return result;
     }
 }
+    function game() {
+        let playerScore = 0;
+        let computerScore = 0;
+        for (let i = 1; i <= 5; i++) {
+            let playerSelection = getPlayerChoice();
+            let computerSelection = getComputerChoice();
+            console.log("Round " + i + " result: " + playRound(playerSelection, computerSelection));
+            let result = playRound(playerSelection, computerSelection);
+            if (result.charAt(4) == "w") {
+                playerScore++;
+            }
+            else if (result.charAt(4) == "l") {
+                computerScore++;
+            }
+    }
+    if (playerScore > computerScore) {
+        console.log("You won the match! " + playerScore + " x " + computerScore);
+    }
+    else if (computerScore > playerScore) {
+        console.log("You lost the match! " + computerScore + " x " + playerScore);
+        }
+    else {
+        console.log("It's a draw!");
+        }
+    }
+
